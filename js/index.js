@@ -1,6 +1,6 @@
 $(function() {
-    let storage = localStorage.getItem('DeezWebFavoris');
-    let favorisList = storage ? JSON.parse(storage) : storage;
+    let storageJSON = localStorage.getItem('DeezWebFavoris');
+    let favorisList = storageJSON ? JSON.parse(storageJSON) : storageJSON;
 
     if (favorisList && favorisList.length > 0){
         let randomFavoris = Math.floor(Math.random() * favorisList.length);
@@ -14,13 +14,13 @@ $(function() {
 
         $('.removeFav').on('click', selectedFavoris.id, function(event){
             favorisList = favorisList.filter(selectedFavoris => selectedFavoris.id !== event.data);
-            localStorage.setItem("favoris", JSON.stringify(favorisList));
+            localStorage.setItem("DeezWebFavoris", JSON.stringify(favorisList));
                 
             location.reload(true);
            
         });
 
-        $('#changeTrack').on('click', function(){    
+        $('#changeTrack').on('click', function(){
             location.reload(true);
         });
     }else {

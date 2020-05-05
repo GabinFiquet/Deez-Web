@@ -52,6 +52,7 @@ header{
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 10;
     box-shadow: 0 3px 2px #424242;
 }
 header img{
@@ -125,4 +126,23 @@ nav li a:hover{
 .card .player{
     width: 100%;
     margin-top: 15px;
+    align-self: flex-end;
+}
+.removeFav{
+    background: white;
+    border: 1px solid #380E70;
+    color: #380E70;
+}
+.removeFav:hover{
+    cursor: pointer;
+    box-shadow: inset 2px 2px 4px grey;
+}
+.addFav{
+    background:#683ba5;
+    border: 1px solid #380E70;
+    color: #DEC7FC;
+}
+.addFav:hover{
+    cursor: pointer;
+    box-shadow: inset 2px 2px 4px black;
 }
