@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Deez'Web</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/index.css'>
+    <script src="https://unpkg.com/jquery"></script>
+    <script defer src="js/index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container flex-row">
+            <a href="index.html"><img src="images/DeezWeb-logo.png"></a>
+            <nav>
+                <ul class="flex-row">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="recherche.html">Recherche</a></li>
+                    <li><a href="favoris.html">Favoris</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container intro">
+        <h1>Bienvenue sur <span>Deez'Web</span></h1>
+        <h4>Écoutez des extraits de vos musiques préférées gratuitement !</h4>
+    </section>
+    <section class="container randomFavoris flex-col">
+        <h2>Vous aimez</h2>
+        <article class="flex-row card">
+            <div class="flex-col description">
+                <p><span class="title"></span> - <span class="artist"></span></p>
+                <p class="album"></p>
+                <button class="removeFav btn-DzW btn-white">Retirer des Favoris</button>
+            </div>
+            <img class="cover" src="">
+            <audio controls class="player" src=""></audio>
+        </article>
+        <button id="changeTrack" class="btn-DzW btn-purple">Mais vous aimez aussi...</button>
+    </section>
+</body>

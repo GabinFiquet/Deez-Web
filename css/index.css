@@ -1,0 +1,15 @@
+
+.intro span{
+    font-style: italic;
+}
+.intro h4{
+    font-size: 26px;
+}
+#changeTrack{
+    font-size: 24px;
+    margin: 20px;
+}
+.randomFavoris h2{
+    color: #380E70;
+    font-size: 32px;
+}

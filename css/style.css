@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+body {
+    margin: 0;
+    border: none;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+.container{
+    width: 70%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-DzW{
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: .3s;
+}
+.btn-white{
+    background: white;
+    border: 1px solid #380E70;
+    color: #380E70;
+}
+.btn-white:hover{
+    cursor: pointer;
+    box-shadow: inset 2px 2px 4px grey;
+}
+.btn-purple{
+    background:#683ba5;
+    border: 1px solid #380E70;
+    color: #DEC7FC;
+}
+.btn-purple:hover{
+    cursor: pointer;
+    box-shadow: inset 2px 2px 4px black;
+}
+header{
+    width: 100%;
+    background: #380E70;
+    background: linear-gradient(163deg, rgba(56,14,112,1) 0%, rgba(81,39,136,1) 25%, rgba(99,57,153,1) 42%, rgba(78,36,133,1) 72%, rgba(56,14,112,1) 100%);
+    height: 100px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 0 3px 2px #424242;
+}
+header img{
+    border-radius: 40px;
+    background: white;
+    height: 70px;
+    border: 5px solid #DEC7FC;
+}
+nav {
+    width: 40%;
+    height: 100px;
+}
+nav ul{
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li{
+    width: 33%;
+    height: 100%;
+}
+nav li a{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: #dec7fc;
+    transition: .5s;
+}
+nav li a:hover{
+    background: #DEC7FC;
+    color: #380E70;
+    box-shadow: 0px 3px 2px 0px #cecece;
+}
+.intro{
+    text-align: center;
+    color: #380E70;
+}
+.intro h1{
+    font-size: 46px;
+}
+.card{
+    width: 30%;
+    justify-content: space-between;
+    border: 1px solid #380e70;
+    padding: 20px;
+    border-radius: 10px;
+    color: #380E70;
+}
+.card .description{
+    max-width: 200px;
+}
+.card .title{
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+}
+.card .album{
+    font-weight: 400;
+}
+.card .cover{
+    width: 120px;
+    height: 120px;
+}
+.card .player{
+    width: 100%;
+    margin-top: 15px;
+}
