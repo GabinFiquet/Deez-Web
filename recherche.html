@@ -8,9 +8,9 @@
     <link rel="icon" type="image/png" href="/img/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/index.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/recherche.css'>
     <script src="https://unpkg.com/jquery"></script>
-    <script defer src="js/index.js"></script>
+    <script defer src="js/recherche.js"></script>
 </head>
 <body>
     <header>
@@ -26,21 +26,24 @@
         </div>
     </header>
     <section class="container intro">
-        <h1>Bienvenue sur <span>Deez'Web</span></h1>
-        <h4>Écoutez des extraits de vos musiques préférées gratuitement !</h4>
+        <h1>Rechercher vos titres favoris</h1>
     </section>
-    <section class="container randomFavoris flex-col">
-        <h2>Vous aimez</h2>
-        <article class="flex-row card">
-            <div class="flex-col description">
-                <p><span class="title"></span> - <span class="artist"></span></p>
-                <p class="album"></p>
-                <button class="removeFav btn-DzW btn-white">Retirer des Favoris</button>
-            </div>
-            <img class="cover" src="">
-            <audio controls class="player" src=""></audio>
-        </article>
-        <button id="changeTrack" class="btn-DzW btn-purple">Mais vous aimez aussi...</button>
-    </section>
+    <form method="get" action="">
+        <div class="form-group">
+            <label for="title">Recherche : </label>
+            <input type="text" class="form-control" placeholder="Rammstein, Ultra Vomit, Alestorm...">
+        </div>
+        <div class="form-group">
+            <label for="sort" >Trier par : </label>
+            <select id="sort" class="form-control">
+                <option value="song" selected>Titre</option>
+                <option value="artist">Artiste</option>
+                <option value="album">Album</option>
+                <option value="popularity">Les plus populaires</option>
+                <option value="rank">Les mieux notés</option>
+            </select>               
+        </div>
+        <input class="btn-DzW btn-purple" type="submit" id="submit" class="btn-submit" >
+    </form>
 </body>
 </html>
