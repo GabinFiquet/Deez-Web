@@ -1,0 +1,37 @@
+form{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 2px 2px 0px grey;
+    padding: 20px;
+    position: sticky;
+    top: 103px;    
+    z-index: 5;
+    background: white;
+}
+.form-group{
+    font-size: 24px;
+    margin-right: 50px;    
+    color: #380e70;
+}
+.form-control{
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #683ba5;
+    font-size: 18px;
+    color: #380e70;
+}
+.songList{
+    align-items: stretch;
+    justify-content: space-around;
+}
+.songList h4{
+    font-size: 26px;
+    text-align: center;
+    width: 100%;
+    color: #380e70;
+}
+.card{
+    margin: 15px 0;
+}
