@@ -4,7 +4,7 @@ $(function() {
 
     if (favorisList && favorisList.length > 0){
         let randomFavoris = Math.floor(Math.random() * favorisList.length);
-        selectedFavoris = favorisList[randomFavoris];
+            selectedFavoris = favorisList[randomFavoris];
 
         $('.title').append(selectedFavoris.title);
         $('.artist').append(selectedFavoris.artist);
