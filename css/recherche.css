@@ -3,24 +3,38 @@ form{
     flex-flow: row wrap;
     justify-content: flex-end;
     align-items: center;
-    box-shadow: 0 2px 2px 0px grey;
     padding: 20px;
     position: sticky;
-    top: 103px;    
+    top: 100px;
     z-index: 5;
-    background: white;
+    background: #0c1729;
+    background: rgba(12,23,41,0.9);
+    box-shadow: 0 5px 16px -4px black;
 }
 .form-group{
     font-size: 24px;
     margin-right: 50px;    
-    color: #380e70;
+    color: white;
+}
+.form-group label{
+    margin-right: 5px;
 }
 .form-control{
     width: 300px;
     border: none;
-    border-bottom: 1px solid #683ba5;
+    border-bottom: 1px solid #0d8754;
     font-size: 18px;
-    color: #380e70;
+    color: white;
+    background: transparent;
+}
+.form-control option{
+    background: #0c1729;
+}
+.form-control:focus{
+    outline: none;
+}
+.form-control option:hover{
+    background: #0d8754;
 }
 .songList{
     align-items: stretch;
@@ -30,7 +44,7 @@ form{
     font-size: 26px;
     text-align: center;
     width: 100%;
-    color: #380e70;
+    color:white;
 }
 .card{
     margin: 15px 0;

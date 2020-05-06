@@ -5,6 +5,10 @@
 body {
     margin: 0;
     border: none;
+    background-image: url(../images/19759.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .flex-col {
     display: flex;
@@ -26,40 +30,39 @@ body {
     font-size: 16px;
     transition: .3s;
 }
-.btn-white{
-    background: white;
-    border: 1px solid #380E70;
-    color: #380E70;
+.btn-green{
+    background:#0d8754;
+    border: 1px solid #0d8754;
+    color: white;
 }
-.btn-white:hover{
-    cursor: pointer;
-    box-shadow: inset 2px 2px 4px grey;
-}
-.btn-purple{
-    background:#683ba5;
-    border: 1px solid #380E70;
-    color: #DEC7FC;
-}
-.btn-purple:hover{
+.btn-green:hover{
     cursor: pointer;
     box-shadow: inset 2px 2px 4px black;
 }
 header{
     width: 100%;
-    background: #380E70;
-    background: linear-gradient(163deg, rgba(56,14,112,1) 0%, rgba(81,39,136,1) 25%, rgba(99,57,153,1) 42%, rgba(78,36,133,1) 72%, rgba(56,14,112,1) 100%);
+    background: rgb(13,135,84);
+    background: linear-gradient(163deg, rgba(13,135,84,1) 0%, rgba(24,149,97,1) 42%, rgba(13,135,84,1) 100%);
     height: 100px;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
-    box-shadow: 0 3px 2px #424242;
+    box-shadow: 0 3px 16px #353535;
+}
+header .logoDeezWeb{
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
 }
 header img{
-    border-radius: 40px;
-    background: white;
-    height: 70px;
-    border: 5px solid #DEC7FC;
+    height: 80px;
+    margin-right: 10px;
+}
+header span{
+    color: #0c1729;
 }
 nav {
     width: 40%;
@@ -85,17 +88,16 @@ nav li a{
     justify-content: center;
     font-size: 24px;
     text-decoration: none;
-    color: #dec7fc;
+    color: white;
     transition: .5s;
 }
 nav li a:hover{
-    background: #DEC7FC;
-    color: #380E70;
-    box-shadow: 0px 3px 2px 0px #cecece;
+    background: #0c1729;
+    box-shadow: 0 10px 7px -7px white;
 }
 .intro{
     text-align: center;
-    color: #380E70;
+    color: white;
 }
 .intro h1{
     font-size: 46px;
@@ -103,10 +105,13 @@ nav li a:hover{
 .card{
     width: 30%;
     justify-content: space-between;
-    border: 1px solid #380e70;
+    border: 1px solid #0d8754;
     padding: 20px;
     border-radius: 10px;
-    color: #380E70;
+    color: #0d8754;
+    background: #0c1729;
+    background: rgba(12,23,41,0.9);
+    box-shadow: 0 3px 16px #000000;
 }
 .card .description{
     max-width: 220px;
@@ -124,25 +129,31 @@ nav li a:hover{
 .card .cover{
     width: 120px;
     height: 120px;
+    border-radius: 50%;
+    border: 2px solid #0d8754;
 }
 .card .player{
     width: 100%;
     margin-top: 15px;
     align-self: flex-end;
+    border: 2px solid #0d8754;
+    border-radius: 40px;
 }
 .removeFav{
     background: white;
-    border: 1px solid #380E70;
-    color: #380E70;
+    border: 1px solid #0d8754;
+    color: #0d8754;    
+    width: 180px;
 }
 .removeFav:hover{
     cursor: pointer;
     box-shadow: inset 2px 2px 4px grey;
 }
 .addFav{
-    background:#683ba5;
-    border: 1px solid #380E70;
-    color: #DEC7FC;
+    background:#0d8754;
+    border: 1px solid #0d8754;
+    color: white;
+    width: 180px;
 }
 .addFav:hover{
     cursor: pointer;
