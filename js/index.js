@@ -15,8 +15,11 @@ $(function() {
         $('.removeFav').on('click', selectedFavoris.id, function(event){
             favorisList = favorisList.filter(selectedFavoris => selectedFavoris.id !== event.data);
             localStorage.setItem("DeezWebFavoris", JSON.stringify(favorisList));
-                
-            location.reload(true);
+            
+            $('.card').removeClass('flipInY');
+            $('.card').addClass('fadeOutLeft');
+            setTimeout(function() {
+                 location.reload(true);}, 1000);
            
         });
 

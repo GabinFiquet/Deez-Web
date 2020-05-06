@@ -22,7 +22,7 @@ $(function() {
 
             $(`#card${i}`).addClass('bounceOut');
             setTimeout(function() {
-                $(`#card${i}`).delay(1000).remove()
+                $(`#card${i}`).remove()
             }, 1000);
         });
     };
