@@ -1,38 +1,23 @@
 $(function() {
+    //Ajout d'un écouteur d'événement sur la soumission du formulaire de recherche
     $('#searchForm').submit(function(event) {
         event.preventDefault();
 
+        //Récupération des valeurs saisies par l'utilisateur
         let searchValue = $('#search').val();
-        var sortValue = $('#sort').find(':selected').val();
-        switch (sortValue) {
-            case 'title':
-                sortValue = 'TRACK_ASC';
-                break;
-            case 'artist':
-                sortValue = 'ARTIST_ASC';
-                break;
-            case 'album':
-                sortValue = 'ALBUM_ASC';
-                break;
-            case 'popularity':
-                sortValue = 'RATING_ASC';
-                break;
-            case 'rank':
-                sortValue = 'RANKING';
-                break;
-            default:
-                sortValue = 'TRACK_ASC';
-        };
-
-        console.log(sortValue)
+        var sortValue = $('#sort').val();
+        
+        //Envoie de la requête à l'API de Deezer
         $.ajax({
             url: `https://api.deezer.com/search?q=${searchValue}&order=${sortValue}&output=jsonp`,
             dataType: "jsonp"
           }).then((result) => {
-            console.log(result.data);
 
+            //Condition sur la valeur de la recherche et sur le résultat de la requête
+            //Si : il y a une valeur de recherche et qu'il y a des résultats correspondant
             if (searchValue.length != 0 && result.data.length != 0){
 
+                //Boucle qui génère les cartes pour chaque résultat de la requête
                 for (let i=0; i < result.data.length; i++){
 
                 let title = result.data[i].title;              
@@ -50,6 +35,7 @@ $(function() {
                         player: result.data[i].preview
                     };
 
+                    //Code HTML qui génère la carte
                     $('.songList').append(`
                     <article class="flex-row card" id="card${i}">
                         <div class="flex-col description" id="description${i}">
@@ -64,46 +50,58 @@ $(function() {
                     let storageJSON = localStorage.getItem("DeezWebFavoris");
                     let storage = storageJSON ? JSON.parse(storageJSON) : storageJSON;
 
+                    //Ajout d'une class sur le bouton de la carte qui ajoute ou retire des favoris
+                    //Selon si la musique est déjà ou non dans les favoris
                     $('#buttonFav' + [i]).addClass( !(storage && storage.find(item => item.id === favoriteSong.id)) ? "addFav" : "removeFav");
 
-                    $('#card'+ [i]).find('#buttonFav' +[i]).on('click', function(e) {
+                    //Ajout d'un écouteur d'événement sur le clic du bouton de favoris
+                    $('#buttonFav' +[i]).on('click', function(e) {
                         e.preventDefault();
-                        // CONDITION D'AJOUT DE FAVORIS OU DE RETRAIT
+
+                        //Condition sur la class du bouton :
+                        //Si : ajout de la musique en Favoris
                         if($(this).hasClass("addFav")){
                             $(this).addClass('removeFav');
                             $(this).removeClass('addFav');                            
                             $(this).html('Retirer des favoris');
 
-                            let fav = JSON.parse(localStorage.getItem("DeezWebFavoris")) || [];
-                            fav.push(favoriteSong);
-                            localStorage.setItem("DeezWebFavoris", JSON.stringify(fav));       
+                            //Ajout de la musique dans la collection DeezWebFavoris
+                            let favorisList = JSON.parse(localStorage.getItem("DeezWebFavoris")) || [];
+                            favorisList.push(favoriteSong);
+                            localStorage.setItem("DeezWebFavoris", JSON.stringify(favorisList));       
                         }
+                        //Retrait de la musique des Favoris
                         else{  
                             $(this).removeClass('removeFav'); 
                             $(this).addClass('addFav');
                             $(this).html('Ajouter aux favoris');
 
-                            let fav = JSON.parse(localStorage.getItem("DeezWebFavoris")); 
-                            fav = fav.filter(fav => { 
-                                if( fav.id == favoriteSong.id ){
+                            //Retrait de la musique dans la collection DeezWebFavoris
+                            let favorisList = JSON.parse(localStorage.getItem("DeezWebFavoris")); 
+                            favorisList = favorisList.filter(favorisList => { 
+                                if( favorisList.id == favoriteSong.id ){
                                     return false;
                                 }
                                 return true;
                             });
-                            localStorage.setItem("DeezWebFavoris", JSON.stringify(fav));  
+                            localStorage.setItem("DeezWebFavoris", JSON.stringify(favorisList));  
                         }              
                     });                        
                 }
+                //Ajout du texte correspondant pour chaque class de bouton
                 $('.addFav').html('Ajouter aux favoris');
                 $('.removeFav').html('Retirer des favoris');            
-            }else if(searchValue.length != 0 && result.data.length == 0){
+            }
+            //Sinon Si : il y a une valeur de recherche et qu'il n'y a  pas de résultats correspondant
+            else if(searchValue.length != 0 && result.data.length == 0){
                 $('.songList').append(`<h4>Désolé, aucun résultat ne correspond à la rechreche : ${searchValue}.</h4>`);
-            }else{
+            }
+            //Sinon : il n'a pas de valeur de recherche
+            else{
                 $('.songList').append(`<h4>Veuillez remplir le champ de recherche.</h4>`);
             }
-          });
-                              
-
+          });                              
+          //Vide la section .songList avant chaque nouvelle requête
           $('.songList').html('');  
     });
 
