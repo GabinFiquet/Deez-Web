@@ -12,7 +12,7 @@ $(function() {
             url: `https://api.deezer.com/search?q=${searchValue}&order=${sortValue}&output=jsonp`,
             dataType: "jsonp"
           }).then((result) => {
-
+              
             //Condition sur la valeur de la recherche et sur le résultat de la requête
             //Si : il y a une valeur de recherche et qu'il y a des résultats correspondant
             if (searchValue.length != 0 && result.data.length != 0){
