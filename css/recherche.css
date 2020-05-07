@@ -49,3 +49,9 @@ form{
 .card{
     margin: 15px 0;
 }
+@media screen and (max-width: 768px){
+    form{
+        justify-content: flex-start;
+        top: 160px;
+    }
+}
