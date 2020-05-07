@@ -56,6 +56,6 @@ $(function() {
     }
     //Sinon : il n'a pas de favoris
     else{
-        $('.songFavList').append(`<h4>Désolé, tu n'as pas encore de favoris</h4>`);
+        $('.songFavList').append(`<h4>Désolé, vous n'avez aucun favoris</h4>`);
     }
 });
