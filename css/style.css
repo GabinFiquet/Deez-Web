@@ -159,3 +159,44 @@ nav li a:hover{
     cursor: pointer;
     box-shadow: inset 2px 2px 4px black;
 }
+
+.rotateVinyle {
+    -webkit-animation-name: rotateVinyle;
+    animation-name: rotateVinyle;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes rotateVinyle {
+    0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -0deg);
+        transform: rotate3d(0, 0, 1, -0deg);
+    }
+    100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, 360deg);
+        transform: rotate3d(0, 0, 1, 360deg);
+        opacity: 1;
+    }
+}
+@keyframes rotateVinyle {
+    0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -0deg);
+        transform: rotate3d(0, 0, 1, -0deg);
+    }
+    100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, 360deg);
+        transform: rotate3d(0, 0, 1, 360deg);
+        opacity: 1;
+    }
+} 

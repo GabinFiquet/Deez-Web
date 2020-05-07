@@ -33,6 +33,21 @@ $(function() {
            
         });
 
+        //Ajout d'une image de vniyle avec une animation à place de la pochette d'album quand la musique est joué
+        $('.player').on('play', function(event){
+            $('.cover').attr('src', 'images/vinyle.png');
+            $('.cover').addClass('rotateVinyle');
+        })
+        //Remplace le vinyle, et retire l'animation, par la pochette d'album quand la musique est en pause
+        $('.player').on('pause', function(event){
+            $('.cover').attr('src', selectedFavoris.cover);
+            $('.cover').removeClass('rotateVinyle');
+        })
+        //Remplace le vinyle, et retire l'animation, par la pochette d'album quand la musique est fini
+        $('.player').on('ended', function(event){
+            $('.cover').attr('src', selectedFavoris.cover);
+            $('.cover').removeClass('rotateVinyle');
+        })
         //Ajout d'un écouteur d'événement sur le clic du bouton pour changer de musique
         $('#changeTrack').on('click', function(){
             location.reload(true);
