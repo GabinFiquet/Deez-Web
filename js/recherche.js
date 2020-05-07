@@ -12,7 +12,7 @@ $(function() {
             url: `https://api.deezer.com/search?q=${searchValue}&order=${sortValue}&output=jsonp`,
             dataType: "jsonp"
           }).then((result) => {
-              
+
             //Condition sur la valeur de la recherche et sur le résultat de la requête
             //Si : il y a une valeur de recherche et qu'il y a des résultats correspondant
             if (searchValue.length != 0 && result.data.length != 0){
@@ -86,7 +86,22 @@ $(function() {
                             });
                             localStorage.setItem("DeezWebFavoris", JSON.stringify(favorisList));  
                         }              
-                    });                        
+                    });
+                     //Ajout d'une image de vniyle avec une animation à place de la pochette d'album quand la musique est joué
+                    $(`#player${i}`).on('play', function(event){
+                        $(`#cover${i}`).attr('src', 'images/vinyle.png');
+                        $(`#cover${i}`).addClass('rotateVinyle');
+                    });
+                    //Remplace le vinyle, et retire l'animation, par la pochette d'album quand la musique est en pause
+                    $(`#player${i}`).on('pause', function(event){
+                        $(`#cover${i}`).attr('src', result.data[i].album.cover);
+                        $(`#cover${i}`).removeClass('rotateVinyle');
+                    });
+                    //Remplace le vinyle, et retire l'animation, par la pochette d'album quand la musique est fini
+                    $(`#player${i}`).on('ended', function(event){
+                        $(`#cover${i}`).attr('src', result.data[i].album.cover);
+                        $(`#cover${i}`).removeClass('rotateVinyle');
+                    });                       
                 }
                 //Ajout du texte correspondant pour chaque class de bouton
                 $('.addFav').html('Ajouter aux favoris');

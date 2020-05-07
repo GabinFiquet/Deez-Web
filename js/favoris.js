@@ -37,6 +37,21 @@ $(function() {
                     $(`#card${i}`).remove()
                 }, 1000);
             });
+                //Ajout d'une image de vniyle avec une animation à place de la pochette d'album quand la musique est joué
+                $(`#player${i}`).on('play', function(event){
+                    $(`#cover${i}`).attr('src', 'images/vinyle.png');
+                    $(`#cover${i}`).addClass('rotateVinyle');
+                });
+                //Remplace le vinyle, et retire l'animation, par la pochette d'album quand la musique est en pause
+                $(`#player${i}`).on('pause', function(event){
+                    $(`#cover${i}`).attr('src', favorisList[i].cover);
+                    $(`#cover${i}`).removeClass('rotateVinyle');
+                });
+                //Remplace le vinyle, et retire l'animation, par la pochette d'album quand la musique est fini
+                $(`#player${i}`).on('ended', function(event){
+                    $(`#cover${i}`).attr('src', favorisList[i].cover);
+                    $(`#cover${i}`).removeClass('rotateVinyle');
+                });
         };
     }
     //Sinon : il n'a pas de favoris
